@@ -24,6 +24,10 @@ const (
 	EFFECT_SMALLASPLODE
 )
 
+type System interface {
+	Update(delta float64)
+}
+
 // GetEntityId
 func GetEntityId() int {
 	nextEntityId++
