@@ -36,10 +36,9 @@ type Game struct {
 // provide implementation for Game subclass
 type IGame interface {
 	Initialize()
-	Start()
+	LoadContent()
 	Update(delta float64)
 	Draw(delta float64)
-	OnEvent(evt sdl.Event)
 }
 
 // Running
@@ -60,7 +59,7 @@ func (this *Game) Quit() {
 
 // Initialize the game
 func (this *Game) Initialize() {
-	runtime.LockOSThread()
+	// runtime.LockOSThread()
 	this.err = sdl.Init(sdl.INIT_VIDEO | sdl.INIT_AUDIO)
 	if this.err != nil {
 		sdl.LogError(sdl.LOG_CATEGORY_APPLICATION, "Init: %s\n", this.err)
@@ -101,25 +100,26 @@ func (this *Game) Destroy() {
 }
 
 // Run the game loop
+// Injects the subclass implementation
 func (this *Game) Run(subclass IGame) {
 	var lastTime float64
 	var curTime float64
-	var event sdl.Event
 
 	subclass.Initialize()
-	subclass.Start()
+	subclass.LoadContent()
 	lastTime = float64(time.Now().UnixNano()) / 1000000.0
 	for this.Running() {
+		switch sdl.PollEvent().(type) {
+		case *sdl.QuitEvent:
+			this.Quit()
+		}
+
 		curTime = float64(time.Now().UnixNano()) / 1000000.0
 		this.Delta = curTime - lastTime
 		lastTime = curTime
 
-		event = sdl.PollEvent()
-		if event != nil {
-			subclass.OnEvent(event)
-		}
-
 		subclass.Update(this.Delta)
+		runtime.GC()
 		subclass.Draw(this.Delta)
 	}
 

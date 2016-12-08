@@ -14,7 +14,21 @@
                 "./bin/shmupwarz",
                 "src/game.go",
                 "src/components.go",
-                "src/shmupwarz.go"
+                "src/entities.go",
+                "src/systems.CollisionSystem.go",
+                "src/systems.ColorTweenSystem.go",
+                "src/systems.DestroySystem.go",
+                "src/systems.EntitySpawningTimerSystem.go",
+                "src/systems.ExpiringSystem.go",
+                "src/systems.MovementSystem.go",
+                "src/systems.PlayerInputSystem.go",
+                "src/systems.RemoveOffscreenShipsSystem.go",
+                "src/systems.RenderSystem.go",
+                "src/systems.ScaleTweenSystem.go",
+                "src/systems.SoundEffectSystem.go",
+                "src/systems.ViewManagerSystem.go",
+                "src/shmupwarz.go",
+                "src/app.go"
             ]
         }
     ]

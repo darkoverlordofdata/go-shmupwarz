@@ -69,7 +69,7 @@ func CreateEntity(mask uint64) (e *Entity) {
 }
 
 // CreatePlayer
-func (this *ShmupWarz) CreatePlayer(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreatePlayer(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_PLAYER | C_BOUNDS | C_HEALTH)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_PLAYER}
@@ -83,7 +83,7 @@ func (this *ShmupWarz) CreatePlayer(x float64, y float64) (e *Entity) {
 }
 
 // CreateBullet
-func (this *ShmupWarz) CreateBullet(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateBullet(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_BULLET | C_BOUNDS | C_EXPIRES | C_TINT | C_VELOCITY)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_BULLET}
@@ -100,7 +100,7 @@ func (this *ShmupWarz) CreateBullet(x float64, y float64) (e *Entity) {
 }
 
 // CreateEnemy1
-func (this *ShmupWarz) CreateEnemy1(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateEnemy1(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_ENEMY | C_BOUNDS | C_HEALTH | C_VELOCITY)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_ENEMY1}
@@ -115,7 +115,7 @@ func (this *ShmupWarz) CreateEnemy1(x float64, y float64) (e *Entity) {
 }
 
 // CreateEnemy2
-func (this *ShmupWarz) CreateEnemy2(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateEnemy2(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_ENEMY | C_BOUNDS | C_HEALTH | C_VELOCITY)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_ENEMY2}
@@ -130,7 +130,7 @@ func (this *ShmupWarz) CreateEnemy2(x float64, y float64) (e *Entity) {
 }
 
 // CreateEnemy3
-func (this *ShmupWarz) CreateEnemy3(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateEnemy3(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_ENEMY | C_BOUNDS | C_HEALTH | C_VELOCITY)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_ENEMY3}
@@ -145,7 +145,7 @@ func (this *ShmupWarz) CreateEnemy3(x float64, y float64) (e *Entity) {
 }
 
 // CreateExplosion
-func (this *ShmupWarz) CreateExplosion(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateExplosion(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_EXPIRES | C_SCALE | C_SCALETWEEN)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_EXPLOSION}
@@ -159,7 +159,7 @@ func (this *ShmupWarz) CreateExplosion(x float64, y float64) (e *Entity) {
 }
 
 // CreateBang
-func (this *ShmupWarz) CreateBang(x float64, y float64) (e *Entity) {
+func (this *ShmupWarz) CreateBang(x int32, y int32) (e *Entity) {
 	e = CreateEntity(C_EXPIRES | C_SCALE | C_SCALETWEEN)
 
 	e.Layer = LayerComponent{Ordinal: LAYER_EXPLOSION}

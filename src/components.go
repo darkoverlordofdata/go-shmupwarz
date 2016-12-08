@@ -123,8 +123,8 @@ type PlayerComponent struct {
 }
 type PositionComponent struct {
 	AbstractComponent
-	X float64
-	Y float64
+	X int32
+	Y int32
 }
 type ResourceComponent struct {
 	AbstractComponent
